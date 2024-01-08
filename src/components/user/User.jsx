@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
 import * as userServices from '../../services/userServices'
-import { auth } from "../../services/AuthServices"
+import { auth, logout } from "../../services/AuthServices"
 
 const User = () => {
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ const User = () => {
           </a>
           <ul className="dropdown-menu">
             <li className="dropdown-item">{userData.email}</li>
-            <li><Link className="dropdown-item" to="/register">Registruotis</Link></li>
+            <li onClick={logout}>atsijungti</li>
           </ul>
         </li>
       </ul>

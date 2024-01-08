@@ -20,10 +20,16 @@ const registerWithEmailAndPassword = async (name, email, password) => {
     }
 }
 
+const logout= ()=> {
+    auth.signOut();
+}
+
 export default firebase
 
 export {
     auth,
     db,
-    registerWithEmailAndPassword
+    registerWithEmailAndPassword,
+    signOut
 }
+
