@@ -29,10 +29,16 @@ const Register = () => {
             registerInfo.email, 
             registerInfo.password
             )
-        navigate('/');
         console.log(registerInfo)
         alert('registracija pavyko')
     }
+
+    const [user, loading, error] = useAuthState(auth);
+
+    useEffect(()=> {
+        if (loading) return;
+        if (user) navigate('/works')
+    },[user, loading])
 
     return(
         <>

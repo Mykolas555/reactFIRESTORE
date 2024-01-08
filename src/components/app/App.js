@@ -13,7 +13,8 @@ function App() {
       <Router>
         <Header/>
         <Routes>
-          <Route path="/" element={<Works/>} />
+          <Route path="/" element={<Register/>} />
+          <Route path="/works" element={<Works/>} />
           <Route path="/addWork" element={<AddWork/>} />
           <Route path="/update-work/:id" element={<AddWork/>} />
           <Route path="/delete-work/:id" element={<Work/>} />

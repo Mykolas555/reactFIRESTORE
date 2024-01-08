@@ -4,20 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Header = () =>{
     return(
-    <>
-        <nav className="navbar bg-body-tertiary">
-            <div className="container-fluid">
-                <div>
-                    <a className="navbar-brand">Time Table App</a>
-                </div>
-                <div>
-                    <ul>
-                        <li><Link to='/register' element={<Register/>}>Registruotis</Link></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </>
+
+         <ul className="navbar-nav">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#">Pradinis</a>
+            <Link className="dropdown-item" to="/register">Registruotis</Link></li>
+          </ul>
     )
 }
 
