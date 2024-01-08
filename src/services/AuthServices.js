@@ -2,7 +2,7 @@ import firebase from "../firebase";
 import { app } from '../firebase'
 import 'firebase/compat/auth'
 
-const auth = app.auth()
+const auth = app.auth();
 const db = app.firestore();
 
 const registerWithEmailAndPassword = async (name, email, password) => {
