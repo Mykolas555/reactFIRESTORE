@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 //importuojam viska is service
-import * as service from "../../services/services"; 
+import * as service from "../../services/TimesCrudServices"; 
 
 const AddWork = () =>{
     const navigate = useNavigate();
@@ -16,7 +16,8 @@ const AddWork = () =>{
         timeFrom:'',
         timeTo:'',
     })
-    //updatinam jei spaudziam keisti
+
+    //updatinam jei spaudziam atnaujinti
     useEffect(()=>{
         id && service.showById(item=>setItems(item),id)
         console.log('iraso id', id)
@@ -30,21 +31,22 @@ const AddWork = () =>{
             [e.target.name]:value,
           });
         };
+
     //perduodam paspaude click duomenis i servisa/duomenu baze
     const submitHandler = (e) => {
         e.preventDefault();
-    
-        // Perform basic form validation
+        
+        // ar visi laukeliai uzpildyti ziuri
         if (
-            !items.date ||
-            !items.company ||
-            !items.service ||
-            !items.description ||
-            !items.timeFrom ||
+            !items.date &&
+            !items.company &&
+            !items.service &&
+            !items.description &&
+            !items.timeFrom &&
             !items.timeTo
         ) {
-            alert('Please fill in all the required fields.');
-            return; // Do not proceed with submission if validation fails
+            alert('Uzpildykite visus pateiktus laukelius');
+            return; 
         }
     
         if (id) {
@@ -95,8 +97,8 @@ const AddWork = () =>{
                         <input type="time" onChange={putDataToState} value={items.to} id="timeTo" name="timeTo"/>
                     </div>
                     <div className="mb-3">
-                        {(id)?
-                        <button variant="primary">Atnaujinti</button>:
+                        { (id) ?
+                        <button variant="primary"type="submit" >Atnaujinti</button>:
                         <button variant="primary" type="submit">Saugoti</button>
                         }
                     </div>

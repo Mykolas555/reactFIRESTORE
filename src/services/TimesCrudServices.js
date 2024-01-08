@@ -30,6 +30,7 @@ export const deleteWork = (id) => {
 }
 
 //update
+//uzpildo forma duomenim, kurie yra jau
 export const showById = (item,  id) => {
     firebase
     .firestore()
@@ -39,10 +40,12 @@ export const showById = (item,  id) => {
     .then((docRef)=>{item(docRef.data())})
 }
 
-export const updateWork = (id, data) =>{
+//pakeitus forma vel ja saugo
+export const updateWork = (id, data) => {
     firebase
     .firestore
     .collection('works')
     .doc(id)
     .set(data)
 }
+

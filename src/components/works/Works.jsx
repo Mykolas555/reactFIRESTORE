@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import WorksTable from '../worksTable/WorksTable';
 import { useState, useEffect } from "react";
-import * as service from "../../services/services";
+import * as service from "../../services/TimesCrudServices";
 
 const Works = () => {
   const [works, setWorks] = useState([]);
