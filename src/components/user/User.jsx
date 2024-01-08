@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
-import * as UserServices from '../../services/UserServices'
+import * as userServices from '../../services/userServices'
 import { auth } from "../../services/AuthServices"
 
 const User = () => {
@@ -14,7 +14,7 @@ const User = () => {
     useEffect(()=>{
         if(loading) return;
         if(!user) navigate('/')
-        UserServices.getUserData(user, setUserData)
+        userServices.getUserData(user, setUserData)
         }, [user, loading, userData])
 
     return(
