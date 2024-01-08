@@ -6,6 +6,7 @@ import AddWork from '../addWork/AddWork';
 import Work from '../work/Work';
 import Register from '../register/Register';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from '../login/Login';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Router>
         <Header/>
         <Routes>
-          <Route path="/" element={<Register/>} />
+          <Route path="/" element={<Login/>} />
           <Route path="/works" element={<Works/>} />
           <Route path="/addWork" element={<AddWork/>} />
           <Route path="/update-work/:id" element={<AddWork/>} />

@@ -1,3 +1,4 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
 import firebase from "../firebase";
 import { app } from '../firebase'
 import 'firebase/compat/auth'
@@ -24,12 +25,21 @@ const logout= ()=> {
     auth.signOut();
 }
 
+signInWithEmailAndPassword = async (email, password) => {
+    try{
+        await auth.signInWithEmailAndPassword(email, password)
+    }catch(err){
+        console.log(err)
+    }
+}
+
 export default firebase
 
 export {
     auth,
     db,
     registerWithEmailAndPassword,
-    signOut
+    logout,
+    signInWithEmailAndPassword
 }
 
